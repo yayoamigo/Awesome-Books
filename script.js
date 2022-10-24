@@ -4,7 +4,11 @@ const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const addBooksForm = document.getElementById('add-books');
 
+
+
 let booksArr = [];
+
+//function for adding a book
 
 function AddingBook (){
  //creating a div 
@@ -23,13 +27,23 @@ function AddingBook (){
  console.log(booksArr);
 
  //book content
- const content = `<p class="book-title">${newBook.title}</p>
+ const content = `<p id="${newBook.title}">${newBook.title}</p>
  <p class="author">${newBook.author}</p>
-<button class="remove-btn"> Remove</button>
+<button onclick="remove(this)"> Remove</button>
 <hr>`;
 //inserting the book content to new div
 booksDiv.insertAdjacentHTML("beforeend", content);
+
 }
+function remove(e){
+ e.parentNode.parentNode.removeChild(e.parentNode);
+}
+
+
+//function for deleting a book
+
+
+
 
 addBooksForm.addEventListener('submit', (e) => {
   AddingBook();
