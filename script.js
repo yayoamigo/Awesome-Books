@@ -37,8 +37,8 @@ booksDiv.insertAdjacentHTML("beforeend", content);
 window.addEventListener('DOMContentLoaded', () => {
   const x = JSON.parse(localStorage.getItem('books'));
   if (localStorage.getItem('books')) {
-  document.getElementById('pTitle').value = x[0].title;
-  document.getElementById('pAuthor').innerText = x[0].author;
+  titleInput.value = x[0].title;
+  authorInput.value = x[0].author;
   } else {
     console.log('No data')
   };
