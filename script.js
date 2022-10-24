@@ -37,8 +37,21 @@ booksDiv.insertAdjacentHTML("beforeend", content);
 window.addEventListener('DOMContentLoaded', () => {
   const x = JSON.parse(localStorage.getItem('books'));
   if (localStorage.getItem('books')) {
-  titleInput.value = x[0].title;
-  authorInput.value = x[0].author;
+     //creating a div 
+    const booksDiv = document.createElement('div');
+    //adding the class books to new div
+    booksDiv.classList.add('books');
+    //adding new div to the html page
+    body.appendChild(booksDiv);
+    
+    let bookList = '';
+    Array.from(x).forEach((i) => {
+    bookList += `<p id="${i.title}">${i.title}</p>
+    <p class="author">${i.author}</p>
+   <button onclick="remove(this)"> Remove</button>
+   <hr>`;
+   booksDiv.insertAdjacentHTML("beforeend", bookList);
+  });
   } else {
     console.log('No data')
   };
