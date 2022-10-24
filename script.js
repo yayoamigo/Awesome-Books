@@ -4,8 +4,6 @@ const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const addBooksForm = document.getElementById('add-books');
 
-
-
 let booksArr = [];
 
 //function for adding a book
@@ -24,6 +22,7 @@ function AddingBook (){
     author: authorInput.value,
   }
  booksArr.push(newBook);
+ localStorage.setItem('books', JSON.stringify(booksArr));
  console.log(booksArr);
 
  //book content
@@ -33,14 +32,23 @@ function AddingBook (){
 <hr>`;
 //inserting the book content to new div
 booksDiv.insertAdjacentHTML("beforeend", content);
-
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const x = JSON.parse(localStorage.getItem('books'));
+  if (localStorage.getItem('books')) {
+  titleInput.value = x[0].title;
+  authorInput.value = x[0].author;
+  } else {
+    console.log('No data')
+  };
+
+});
+
+//function for deleting a book
 function remove(e){
  e.parentNode.parentNode.removeChild(e.parentNode);
 }
-
-
-//function for deleting a book
 
 
 
