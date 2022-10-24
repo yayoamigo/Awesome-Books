@@ -37,6 +37,7 @@ booksDiv.insertAdjacentHTML("beforeend", content);
 }
 function remove(e){
  e.parentNode.parentNode.removeChild(e.parentNode);
+ 
 }
 
 
@@ -48,4 +49,9 @@ function remove(e){
 addBooksForm.addEventListener('submit', (e) => {
   AddingBook();
   e.preventDefault();
-})
+  const data = {
+   title: titleInput.value,
+   author: authorInput.value,
+ };
+ localStorage.setItem('data', JSON.stringify(data));
+});
