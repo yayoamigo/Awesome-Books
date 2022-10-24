@@ -26,8 +26,8 @@ function AddingBook (){
  console.log(booksArr);
 
  //book content
- const content = `<p id="pTitle"></p>
- <p class="pAuthor"></p>
+ const content = `<p id="${newBook.title}">${newBook.title}</p>
+ <p class="author">${newBook.author}</p>
 <button onclick="remove(this)"> Remove</button>
 <hr>`;
 //inserting the book content to new div
@@ -36,13 +36,21 @@ booksDiv.insertAdjacentHTML("beforeend", content);
 
 window.addEventListener('DOMContentLoaded', () => {
   const x = JSON.parse(localStorage.getItem('books'));
-  if (localStorage.getItem('books')) {
-  titleInput.value = x[0].title;
-  authorInput.value = x[0].author;
-  } else {
-    console.log('No data')
-  };
+  //creating a div 
+  const booksDiv = document.createElement('div');
+  //adding the class books to new div
+  booksDiv.classList.add('books');
+  //adding new div to the html page
+  body.appendChild(booksDiv);
 
+  let bookList = '';
+  Array.from(x).forEach((i) => {
+  bookList += `<p id="${i.title}">${i.title}</p>
+  <p class="author">${i.author}</p>
+ <button onclick="remove(this)"> Remove</button>
+ <hr>`;
+ booksDiv.insertAdjacentHTML("beforeend", bookList);
+});
 });
 
 //function for deleting a book
