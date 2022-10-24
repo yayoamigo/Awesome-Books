@@ -26,8 +26,8 @@ function AddingBook (){
  console.log(booksArr);
 
  //book content
- const content = `<p id="${newBook.title}">${newBook.title}</p>
- <p class="author">${newBook.author}</p>
+ const content = `<p id="pTitle"></p>
+ <p class="pAuthor"></p>
 <button onclick="remove(this)"> Remove</button>
 <hr>`;
 //inserting the book content to new div
@@ -37,8 +37,8 @@ booksDiv.insertAdjacentHTML("beforeend", content);
 window.addEventListener('DOMContentLoaded', () => {
   const x = JSON.parse(localStorage.getItem('books'));
   if (localStorage.getItem('books')) {
-  titleInput.value = x[0].title;
-  authorInput.value = x[0].author;
+  document.getElementById('pTitle').value = x[0].title;
+  document.getElementById('pAuthor').innerText = x[0].author;
   } else {
     console.log('No data')
   };
