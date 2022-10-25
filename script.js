@@ -17,7 +17,7 @@ function addBook (newBook){
 //function for displaying the books
 function displayBooks() {
   const books = JSON.parse(localStorage.getItem('books'));
-  Array.from(books).forEach((book) => addBook(book));
+  books.forEach((book) => addBook(book));
 }
 
 window.addEventListener('DOMContentLoaded', displayBooks);
