@@ -1,73 +1,63 @@
-const body = document.getElementById('displayed-books');
-const addBtn = document.querySelector('.add');
-const titleInput = document.getElementById('title');
-const authorInput = document.getElementById('author');
+const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 
 let booksArr = [];
 
 //function for adding a book
-
-function AddingBook (){
- //creating a div 
- const booksDiv = document.createElement('div');
- //adding the class books to new div
- booksDiv.classList.add('books');
- //adding new div to the html page
- body.appendChild(booksDiv);
- //book data
-
-  const newBook = {
-    title: titleInput.value,
-    author: authorInput.value,
-  }
- booksArr.push(newBook);
- localStorage.setItem('books', JSON.stringify(booksArr));
- console.log(booksArr);
-
- //book content
- const content = `<p id="${newBook.title}">${newBook.title}</p>
+function addBook (newBook){
+  //book content
+ const content = `<div class="books"><p id="title-input">${newBook.title}</p>
  <p class="author">${newBook.author}</p>
-<button onclick="remove(this)"> Remove</button>
-<hr>`;
-//inserting the book content to new div
-booksDiv.insertAdjacentHTML("beforeend", content);
+ <button class="remove-btn"> Remove</button>
+ <hr></div>`;
+  //inserting the book content to new div
+  booksBody.insertAdjacentHTML("beforeend", content);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const x = JSON.parse(localStorage.getItem('books'));
-  //creating a div 
-  const booksDiv = document.createElement('div');
-  //adding the class books to new div
-  booksDiv.classList.add('books');
-  //adding new div to the html page
-  body.appendChild(booksDiv);
-
-  let bookList = '';
-  Array.from(x).forEach((i) => {
-  bookList += `<p id="${i.title}">${i.title}</p>
-  <p class="author">${i.author}</p>
- <button onclick="remove(this)"> Remove</button>
- <hr>`;
- booksDiv.insertAdjacentHTML("beforeend", bookList);
-});
-});
-
-//function for deleting a book
-function remove(e){
- e.parentNode.parentNode.removeChild(e.parentNode);
- 
+//function for displaying the books
+function displayBooks() {
+  const books = JSON.parse(localStorage.getItem('books'));
+  Array.from(books).forEach((book) => addBook(book));
 }
 
+window.addEventListener('DOMContentLoaded', displayBooks);
 
+//function for removing books from local storage
+function removeBooks(book){
+  const bookTitle = book.querySelector('#title-input').innerText;
+  const b = JSON.parse(localStorage.getItem('books'));
+  const filter = b.filter((book) => bookTitle === book.title);
+  const filterIndex = b.indexOf(filter[0]);
+  b.splice(filterIndex, 1);
+  localStorage.setItem('books', JSON.stringify(b));
+}
 
+//function for removing books from interface
+function removeBookUI(element) {
+  if (element.classList.contains('remove-btn')) {
+    element.parentElement.remove();
+  }
+}
+
+// Element target
+booksBody.addEventListener('click', (e) => {
+  if (e.target.className === 'remove-btn'){
+    const book = e.target.parentElement;
+    removeBooks(book);
+    removeBookUI(e.target);
+  }
+});
 
 addBooksForm.addEventListener('submit', (e) => {
-  AddingBook();
   e.preventDefault();
-  const data = {
-   title: titleInput.value,
-   author: authorInput.value,
- };
- localStorage.setItem('data', JSON.stringify(data));
+  const newBook = new Object();
+  const titleInput = document.getElementById('title');
+  const authorInput = document.getElementById('author');
+  newBook.title = titleInput.value;
+  newBook.author = authorInput.value;
+  addBook(newBook);
+  booksArr.push(newBook);
+  localStorage.setItem('books', JSON.stringify(booksArr));
+  titleInput.value = '';
+  authorInput.value = '';
 });
