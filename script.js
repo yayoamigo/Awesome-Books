@@ -26,26 +26,22 @@ window.addEventListener('DOMContentLoaded', displayBooks);
 function removeBooks(book){
   const bookTitle = book.querySelector('#title-input').innerText;
   const b = JSON.parse(localStorage.getItem('books'));
-  const filter = b.filter((book) => bookTitle === book.title);
-  const filterIndex = b.indexOf(filter[0]);
+  const filterIndex = b.findIndex(x => x.title === bookTitle);
   b.splice(filterIndex, 1);
   localStorage.setItem('books', JSON.stringify(b));
 }
 
 //function for removing books from interface
 function removeBookUI(element) {
-  if (element.classList.contains('remove-btn')) {
-    element.parentElement.remove();
-  }
+  element.parentElement.remove();
+  
 }
 
 // Element target
 booksBody.addEventListener('click', (e) => {
-  if (e.target.className === 'remove-btn'){
     const book = e.target.parentElement;
     removeBooks(book);
     removeBookUI(e.target);
-  }
 });
 
 addBooksForm.addEventListener('submit', (e) => {
