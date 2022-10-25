@@ -1,23 +1,24 @@
 const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 
-class Books { 
-  //method for setting the inicial array
+class Books {
+  // method for setting the inicial array
   static booksArr = [];
 
-  constructor(title,author){
+  constructor(title, author) {
     this.title = title;
     this.author = author;
   }
-  //method for pushing the new book into the array
-  static pushBook(newBook){
+
+  // method for pushing the new book into the array
+  static pushBook(newBook) {
     Books.booksArr.push(newBook);
   }
-  //method for removing the book from the html
+
+  // method for removing the book from the html
   static removeBookUI(element) {
     element.parentElement.remove();
   }
-  
 }
 
 // function for adding a book
@@ -59,7 +60,7 @@ addBooksForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const titleInput = document.getElementById('title');
   const authorInput = document.getElementById('author');
-  const newBook = new Books(titleInput.value,authorInput.value);
+  const newBook = new Books(titleInput.value, authorInput.value);
   addBook(newBook);
   Books.pushBook(newBook);
   localStorage.setItem('books', JSON.stringify(Books.booksArr));
