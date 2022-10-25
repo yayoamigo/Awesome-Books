@@ -1,4 +1,81 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Poppins&display=swap');
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.center-txt {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+#displayed-books {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.books {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.books:nth-child(1) {
+  background-color: #ccc;
+}
+
+.books-info {
+  display: flex;
+}
+
+button {
+  padding: 5px 8px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+#add-form {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form {
+  padding: 20px 30px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.divider {
+  background-color: black;
+  border: none;
+  height: 1px;
+  width: 20%;
+  margin: auto;
+}
+
+.add {
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
 }

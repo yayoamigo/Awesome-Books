@@ -23,10 +23,10 @@ class Books {
 // function for adding a book
 function addBook(newBook) {
   // book content
-  const content = `<div class="books"><p id="title-input">${newBook.title}</p>
-  <p class="author">${newBook.author}</p>
+  const content = `<div class="books"><div class="books-info"><p id="title-input">"${newBook.title}"</p><p>&nbsp;by&nbsp;</p>
+  <p class="author">${newBook.author}</p></div>
   <button class="remove-btn"> Remove</button>
-  <hr></div>`;
+  </div><hr>`;
   // inserting the book content to new div
   booksBody.insertAdjacentHTML('beforeend', content);
 }
