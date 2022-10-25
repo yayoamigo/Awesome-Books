@@ -1,15 +1,33 @@
 const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 
-const booksArr = [];
+class Books {
+  // method for setting the inicial array
+  static booksArr = [];
+
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  // method for pushing the new book into the array
+  static pushBook(newBook) {
+    Books.booksArr.push(newBook);
+  }
+
+  // method for removing the book from the html
+  static removeBookUI(element) {
+    element.parentElement.remove();
+  }
+}
 
 // function for adding a book
 function addBook(newBook) {
   // book content
-  const content = `<div class="books"><p id="title-input">${newBook.title}</p>
- <p class="author">${newBook.author}</p>
- <button class="remove-btn"> Remove</button>
- <hr></div>`;
+  const content = `<div class="books"><div class="books-info"><p id="title-input">"${newBook.title}"</p><p>&nbsp;by&nbsp;</p>
+  <p class="author">${newBook.author}</p></div>
+  <button class="remove-btn"> Remove</button>
+  </div>`;
   // inserting the book content to new div
   booksBody.insertAdjacentHTML('beforeend', content);
 }
@@ -31,28 +49,21 @@ function removeBooks(book) {
   localStorage.setItem('books', JSON.stringify(b));
 }
 
-// function for removing books from interface
-function removeBookUI(element) {
-  element.parentElement.remove();
-}
-
 // Element target
 booksBody.addEventListener('click', (e) => {
   const book = e.target.parentElement;
   removeBooks(book);
-  removeBookUI(e.target);
+  Books.removeBookUI(e.target);
 });
 
 addBooksForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const newBook = {};
   const titleInput = document.getElementById('title');
   const authorInput = document.getElementById('author');
-  newBook.title = titleInput.value;
-  newBook.author = authorInput.value;
+  const newBook = new Books(titleInput.value, authorInput.value);
   addBook(newBook);
-  booksArr.push(newBook);
-  localStorage.setItem('books', JSON.stringify(booksArr));
+  Books.pushBook(newBook);
+  localStorage.setItem('books', JSON.stringify(Books.booksArr));
   titleInput.value = '';
   authorInput.value = '';
 });
