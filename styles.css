@@ -36,7 +36,7 @@ h1 {
   padding: 10px 20px;
 }
 
-.books:nth-child(1) {
+.books:nth-child(odd) {
   background-color: #ccc;
 }
 

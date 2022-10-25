@@ -26,7 +26,7 @@ function addBook(newBook) {
   const content = `<div class="books"><div class="books-info"><p id="title-input">"${newBook.title}"</p><p>&nbsp;by&nbsp;</p>
   <p class="author">${newBook.author}</p></div>
   <button class="remove-btn"> Remove</button>
-  </div><hr>`;
+  </div>`;
   // inserting the book content to new div
   booksBody.insertAdjacentHTML('beforeend', content);
 }
