@@ -4,9 +4,10 @@ This is a website for adding and removing books ddynamically using Javascript
 ## Built With
 - HTML
 - CSS
+- JavaScript
 # Get Started
 
- -[Portfolio](https://yayoamigo.github.io/)
+ -[Awesome Books](https://yayoamigo.github.io/)
 
 
 ## Authors
