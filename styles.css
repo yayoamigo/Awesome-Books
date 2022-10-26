@@ -21,6 +21,10 @@ body {
   display: none;
 }
 
+.show {
+  display: block;
+}
+
 header {
   margin: 20px;
 }
@@ -122,4 +126,18 @@ footer {
 
 footer h2 {
   font-size: 1.5rem;
+}
+
+#time {
+  display: flex;
+  justify-content: end;
+  padding: 3px;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
