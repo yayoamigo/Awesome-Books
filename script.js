@@ -37,7 +37,6 @@ function displayBooks() {
   const books = JSON.parse(localStorage.getItem('books'));
   books.forEach((book) => addBook(book));
 }
-
 window.addEventListener('DOMContentLoaded', displayBooks);
 
 // function for removing books from local storage
@@ -67,3 +66,39 @@ addBooksForm.addEventListener('submit', (e) => {
   titleInput.value = '';
   authorInput.value = '';
 });
+
+// Date
+const date = new Date();
+const d = date.toDateString();
+const local = date.toLocaleTimeString();
+document.getElementsByClassName('time')[0].innerText = `${d} , ${local}`;
+
+// Add book pop-window
+const addPage = document.getElementById('add-book-section');
+const listPage = document.getElementById('all-books-section');
+const contactPage = document.getElementById('contact-section');
+const addSection = document.getElementById('add-book-form');
+const listSection = document.getElementById('book-list');
+const contactSection = document.getElementById('contact');
+
+function showBooks() {
+  addSection.classList.replace('hide', 'show');
+  listSection.classList.replace('show', 'hide');
+  contactSection.classList.replace('show', 'hide');
+}
+
+function showContact() {
+  addSection.classList.replace('show', 'hide');
+  listSection.classList.replace('show', 'hide');
+  contactSection.classList.replace('hide', 'show');
+}
+
+function showList() {
+  addSection.classList.replace('show', 'hide');
+  listSection.classList.replace('hide', 'show');
+  contactSection.classList.replace('show', 'hide');
+}
+
+addPage.addEventListener('click', showBooks);
+listPage.addEventListener('click', showList);
+contactPage.addEventListener('click', showContact);
