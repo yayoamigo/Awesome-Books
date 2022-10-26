@@ -8,18 +8,38 @@
  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
- <h1 class="center-txt">All awesome books</h1>
- <section id="displayed-books">
+  <header>
+    <div class="nav-content">
+      <h1>Awesome Books</h1>
+      <nav>
+        <ul>
+          <li id="all-books-section">List</li>
+          <li id="add-book-section">Add new</li>
+          <li id="contact-section">Contact</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="book-list">
+    <div class="book-list">
+      <h1 class="center-txt">All awesome books</h1>
+      <div id="displayed-books"></div>
+    </div>
+  </section>
+ <!-- <hr class="divider"> -->
+ <section id="add-book-form" class="hide">
+  <div class="add-form">
+    <h2 class="center-txt">Add a new book</h2>
+    <form id="add-books" action="submit">
+      <input type="text" id="title" name="title" placeholder="Title" required>  <br><br>
+      <input type="text" id="author" name="author" placeholder="Author" required><br><br> 
+      <button type="submit" class="add"> Add</button>
+    </form>
+  </div>
  </section>
- <hr class="divider">
- <section id="add-form">
-  <h2 class="center-txt">Add a new book</h2>
-<form id="add-books" action="submit">
- <input type="text" id="title" name="title" placeholder="Title" required>  <br><br>
- <input type="text" id="author" name="author" placeholder="Author" required><br><br> 
- <button type="submit" class="add"> Add</button>
-</form>
- </section>
+ <footer>
+  <h2>Copyright</h2>
+ </footer>
  <script src="/script.js"></script>
 </body>
 </html>

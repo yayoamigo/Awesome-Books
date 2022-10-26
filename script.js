@@ -37,7 +37,6 @@ function displayBooks() {
   const books = JSON.parse(localStorage.getItem('books'));
   books.forEach((book) => addBook(book));
 }
-
 window.addEventListener('DOMContentLoaded', displayBooks);
 
 // function for removing books from local storage
