@@ -20,12 +20,9 @@ This is a website for adding and removing books ddynamically using Javascript
 
 
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-
-
 
 ## Show your support
 
