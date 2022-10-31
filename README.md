@@ -22,8 +22,6 @@ This is a website for adding and removing books ddynamically using Javascript
 
 Contributions, issues, and feature requests are welcome!
 
-
-
 ## Show your support
 
 Give a ⭐️ if you like this project!

@@ -1,8 +1,11 @@
-import {addBook, Books, removeBooks, startTime } from './modules/modules.js';
+import {
+  addBook, Books, removeBooks, startTime,
+} from './modules/modules.js';
 
+const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 
-//display books 
+// display books
 
 const displayBooks = () => {
   const books = JSON.parse(localStorage.getItem('books'));

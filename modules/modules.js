@@ -9,7 +9,6 @@ export const addBook = (newBook) => {
   booksBody.insertAdjacentHTML('beforeend', content);
 };
 
-
 export class Books {
  // method for setting the inicial array
  static booksArr = [];
