@@ -1,3 +1,15 @@
+export const addBook = (newBook) => {
+  // book content
+  const content = `<div class="books"><div class="books-info"><p id="title-input">"${newBook.title}"</p><p>&nbsp;by&nbsp;</p>
+  <p class="author">${newBook.author}</p></div>
+  <button class="remove-btn"> Remove</button>
+  </div>`;
+  // inserting the book content to new div
+  const booksBody = document.getElementById('displayed-books');
+  booksBody.insertAdjacentHTML('beforeend', content);
+};
+
+
 export class Books {
  // method for setting the inicial array
  static booksArr = [];

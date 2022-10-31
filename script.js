@@ -1,18 +1,8 @@
-import { Books, removeBooks, startTime } from './modules/modules.js';
+import {addBook, Books, removeBooks, startTime } from './modules/modules.js';
 
-const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 
-// function for adding a book
-const addBook = (newBook) => {
-  // book content
-  const content = `<div class="books"><div class="books-info"><p id="title-input">"${newBook.title}"</p><p>&nbsp;by&nbsp;</p>
-  <p class="author">${newBook.author}</p></div>
-  <button class="remove-btn"> Remove</button>
-  </div>`;
-  // inserting the book content to new div
-  booksBody.insertAdjacentHTML('beforeend', content);
-};
+//display books 
 
 const displayBooks = () => {
   const books = JSON.parse(localStorage.getItem('books'));
