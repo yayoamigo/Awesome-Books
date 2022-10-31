@@ -1,6 +1,5 @@
 import { Books, removeBooks, startTime } from './modules/modules.js';
 
-
 const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 
@@ -44,7 +43,6 @@ addBooksForm.addEventListener('submit', (e) => {
 // Date
 
 setInterval(startTime, 1000);
-
 
 // Add book pop-window
 const addPage = document.getElementById('add-book-section');
