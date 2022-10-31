@@ -1,5 +1,3 @@
-import { DateTime } from 'luxon';
-
 export class Books {
  // method for setting the inicial array
  static booksArr = [];
@@ -29,8 +27,9 @@ export const removeBooks = (book) => {
 };
 
 export const startTime = () => {
+  /* eslint-disable */
+  const { DateTime } = luxon;
   const time = DateTime.now().setZone('America/Bogota');
   const now = time.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
   document.getElementById('time').innerHTML = now;
-  setTimeout(startTime, 1000);
-};
+}
