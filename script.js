@@ -1,7 +1,6 @@
 import {
   addBook, Books, removeBooks, startTime,
 } from './modules/modules.js';
-
 const booksBody = document.getElementById('displayed-books');
 const addBooksForm = document.getElementById('add-books');
 

@@ -2,6 +2,7 @@
   "name": "awesome-books",
   "version": "1.0.0",
   "description": "This is a website for adding and removing books",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,6 +30,7 @@
     "stylelint-scss": "^3.21.0"
   },
   "dependencies": {
+    "chalk": "^5.1.2",
     "eslint-config-airbnb": "^19.0.4",
     "luxon": "^3.1.0"
   }
